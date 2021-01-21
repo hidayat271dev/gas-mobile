@@ -1,0 +1,89 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.LPGO" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="AppBackground">
+        <item name="backgroundColor">@color/background</item>
+    </style>
+
+    <!--  START BUTTON STYLE  -->
+    <style name="AppButton" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/bg_button_rounded</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="fontFamily">@font/poppins_semibold</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="AppButtonPrimary" parent="AppButton">
+        <item name="android:backgroundTint">@color/buttonPrimary</item>
+    </style>
+
+    <style name="AppBorderRounded" parent="AppButton">
+        <item name="android:background">@drawable/bg_button_border_rounded</item>
+        <item name="android:textColor">@color/primary</item>
+        <item name="fontFamily">@font/poppins_semibold</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+    <!--  END BUTTON STYLE  -->
+
+    <!--  START TEXT STYLE  -->
+    <style name="PoppinsRegular8" parent="Widget.AppCompat.TextView">
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:textColor">@color/primaryText</item>
+        <item name="android:textSize">8sp</item>
+    </style>
+    <style name="PoppinsRegular10" parent="Widget.AppCompat.TextView">
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:textColor">@color/primaryText</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="PoppinsSemiBold12" parent="Widget.AppCompat.TextView">
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+        <item name="android:textColor">@color/primaryText</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="PoppinsSemiBold10" parent="Widget.AppCompat.TextView">
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+        <item name="android:textColor">@color/primaryText</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+    <style name="PoppinsSemiBold8" parent="Widget.AppCompat.TextView">
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+        <item name="android:textColor">@color/primaryText</item>
+        <item name="android:textSize">8sp</item>
+    </style>
+
+    <style name="PoppinsMedium10" parent="Widget.AppCompat.TextView">
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textColor">@color/primaryText</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+    <style name="PoppinsMedium8" parent="Widget.AppCompat.TextView">
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textColor">@color/primaryText</item>
+        <item name="android:textSize">8sp</item>
+    </style>
+
+    <style name="PoppinsLight8" parent="Widget.AppCompat.TextView">
+        <item name="android:fontFamily">@font/poppins_light</item>
+        <item name="android:textColor">@color/primaryText</item>
+        <item name="android:textSize">8sp</item>
+    </style>
+    <!--  END TEXT STYLE  -->
+
+</resources>
