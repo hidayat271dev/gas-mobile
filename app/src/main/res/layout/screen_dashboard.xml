@@ -83,7 +83,7 @@
                 android:paddingRight="16dp">
 
                 <TextView
-                    android:id="@+id/textView16"
+                    
                     style="@style/PoppinsSemiBold10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -91,7 +91,7 @@
                     android:text="Popular Near You" />
 
                 <TextView
-                    android:id="@+id/textView17"
+                    
                     style="@style/PoppinsRegular8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -117,7 +117,7 @@
                 android:paddingRight="16dp">
 
                 <TextView
-                    android:id="@+id/textView16"
+                    
                     style="@style/PoppinsSemiBold10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -125,7 +125,7 @@
                     android:text="Explore Categories" />
 
                 <TextView
-                    android:id="@+id/textView17"
+                    
                     style="@style/PoppinsRegular8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -151,7 +151,7 @@
                 android:paddingRight="16dp">
 
                 <TextView
-                    android:id="@+id/textView16"
+                    
                     style="@style/PoppinsSemiBold10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -159,7 +159,7 @@
                     android:text="Recommended" />
 
                 <TextView
-                    android:id="@+id/textView17"
+                    
                     style="@style/PoppinsRegular8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

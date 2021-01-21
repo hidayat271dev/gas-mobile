@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/app_navigation"
+    app:startDestination="@id/dashboardFragment">
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.joker.lpgo.ui.dashboard.view.DashboardFragment"
+        android:label="DashboardFragment" >
+        <action
+            android:id="@+id/action_dashboardFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_cartFragment"
+            app:destination="@id/cartFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_currentLocationFragment"
+            app:destination="@id/currentLocationFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_categoryListFragment"
+            app:destination="@id/categoryListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.joker.lpgo.ui.profile.view.ProfileFragment"
+        android:label="ProfileFragment" />
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.joker.lpgo.ui.cart.view.CartFragment"
+        android:label="CartFragment" />
+    <fragment
+        android:id="@+id/currentLocationFragment"
+        android:name="com.joker.lpgo.ui.current_location.view.CurrentLocationFragment"
+        android:label="CurrentLocationFragment" />
+    <fragment
+        android:id="@+id/categoryListFragment"
+        android:name="com.joker.lpgo.ui.category_list.view.CategoryListFragment"
+        android:label="CategoryListFragment" />
+</navigation>
