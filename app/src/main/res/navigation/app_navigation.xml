@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/app_navigation"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_navigation"
     app:startDestination="@id/dashboardFragment">
     <fragment
         android:id="@+id/dashboardFragment"
         android:name="com.joker.lpgo.ui.dashboard.view.DashboardFragment"
-        android:label="DashboardFragment" >
+        android:label="DashboardFragment">
         <action
             android:id="@+id/action_dashboardFragment_to_profileFragment"
-            app:destination="@id/profileFragment" />
+            app:destination="@id/profileFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit"
+            app:launchSingleTop="false"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
         <action
             android:id="@+id/action_dashboardFragment_to_cartFragment"
             app:destination="@id/cartFragment" />

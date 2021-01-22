@@ -4,6 +4,9 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import com.joker.lpgo.R
 import com.joker.lpgo.databinding.ScreenHomeBinding
 import com.joker.lpgo.ui.login.view.LoginActivity
 import dagger.hilt.android.AndroidEntryPoint
@@ -18,6 +21,11 @@ class HomeActivity : AppCompatActivity() {
         bindingView = ScreenHomeBinding.inflate(layoutInflater)
         val view = bindingView.root
         setContentView(view)
+        setupView()
+    }
+
+    fun setupView() {
+
     }
 
 

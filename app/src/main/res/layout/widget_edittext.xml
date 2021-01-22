@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:id="@+id/containerEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false">
+
+            <ImageView
+                android:id="@+id/img_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:contentDescription="@string/app_name"
+                android:src="@android:drawable/ic_dialog_email"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_phone"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="2dp"
+                android:layout_marginBottom="2dp"
+                android:gravity="start|center_vertical"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/iv_close"
+                app:layout_constraintStart_toEndOf="@+id/img_left"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/iv_toggle_password"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginEnd="8dp"
+                android:background="?android:attr/actionBarItemBackground"
+                android:padding="8dp"
+                android:scaleType="centerCrop"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_eye_hide" />
+
+            <ImageButton
+                android:id="@+id/iv_close"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="?android:attr/actionBarItemBackground"
+                android:padding="8dp"
+                android:scaleType="centerCrop"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/iv_toggle_password"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_close_rounded" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/tv_error"
+            style="@style/PoppinsSemiBold12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="error message here"
+            android:textAllCaps="false"
+            android:textColor="@color/editTextDanger"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+</merge>

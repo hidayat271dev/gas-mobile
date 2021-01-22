@@ -18,6 +18,36 @@
         <item name="backgroundColor">@color/background</item>
     </style>
 
+    <!--  START EDITTEXT STYLE  -->
+    <style name="EditTextDefault">
+        <item name="edt_padding_bottom">8dp</item>
+        <item name="edt_padding_end">8dp</item>
+        <item name="edt_padding_start">8dp</item>
+        <item name="edt_padding_top">8dp</item>
+        <item name="edt_background">@drawable/bg_editbox_second_rounded</item>
+        <item name="edt_background_focus">@drawable/bg_editbox_active_rounded</item>
+        <item name="edt_text_color">@color/primaryText</item>
+        <item name="edt_text_hint_color">@color/hintText</item>
+        <item name="edt_toggle_text_color">@color/primary</item>
+        <item name="edt_text_size">12sp</item>
+    </style>
+
+    <style name="EditTextSearch">
+        <item name="edt_padding_bottom">8dp</item>
+        <item name="edt_padding_end">16dp</item>
+        <item name="edt_padding_start">8dp</item>
+        <item name="edt_padding_top">8dp</item>
+        <item name="edt_background_text">@drawable/bg_editbox_circle</item>
+        <item name="edt_background">@drawable/bg_editbox_circle</item>
+        <item name="edt_show_clear">true</item>
+        <item name="edt_hint">@string/hint_search</item>
+        <item name="edt_text_size">12sp</item>
+        <item name="edt_text_color">@color/primaryText</item>
+        <item name="android:imeOptions">actionSearch</item>
+        <item name="android:inputType">text</item>
+    </style>
+    <!--  END EDITTEXT STYLE  -->
+
     <!--  START BUTTON STYLE  -->
     <style name="AppButton" parent="Widget.AppCompat.Button">
         <item name="android:background">@drawable/bg_button_rounded</item>

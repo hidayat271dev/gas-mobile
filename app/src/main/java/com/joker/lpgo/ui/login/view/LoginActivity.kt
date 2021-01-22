@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.joker.lpgo.R
 import com.joker.lpgo.databinding.ScreenAuthBinding
 import com.joker.lpgo.ui.home.view.HomeActivity
 import dagger.hilt.android.AndroidEntryPoint
@@ -22,6 +23,8 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun setupView() {
+        bindingView.htmlText.setHtml(getString(R.string.register_desc))
+
         bindingView.button2.setOnClickListener {
             HomeActivity.launchIntent(applicationContext)
             finish()

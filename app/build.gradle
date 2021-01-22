@@ -110,4 +110,13 @@ dependencies {
 
     // CircleImageView [https://github.com/hdodenhof/CircleImageView]
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    // SDP - a scalable size unit [https://github.com/intuit/sdp]
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+
+    // SSP - a scalable size unit for texts [https://github.com/intuit/ssp]
+    implementation 'com.intuit.ssp:ssp-android:1.0.6'
+
+    // HtmlTextView [https://github.com/SufficientlySecure/html-textview]
+    implementation 'org.sufficientlysecure:html-textview:4.0'
 }

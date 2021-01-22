@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">LPG.O</string>
+    <string name="hint_search">Search here</string>
+    <string name="register_desc"><![CDATA[<p>Don\'t have account to login? <strong><font color="#FC6B57">click here for Register</font></strong></p>]]></string>
 </resources>
