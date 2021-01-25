@@ -8,7 +8,6 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.joker.lpgo.R
 import com.joker.lpgo.databinding.ScreenHomeBinding
-import com.joker.lpgo.ui.login.view.LoginActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

@@ -8,7 +8,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.joker.lpgo.R
 import com.joker.lpgo.data.model.Walktrough
 import com.joker.lpgo.databinding.ScreenWalkhtroughBinding
-import com.joker.lpgo.ui.login.view.LoginActivity
+import com.joker.lpgo.ui.auth.view.AuthActivity
 import com.joker.lpgo.ui.walktrough.adapter.WalktroughPageAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -63,7 +63,7 @@ class WalktroughActivity : AppCompatActivity() {
                 currentViewPagerIndex++
                 bindingView.viewPager2.currentItem = currentViewPagerIndex
             } else {
-                LoginActivity.launchIntent(applicationContext)
+                AuthActivity.launchIntent(applicationContext)
                 finish()
             }
         }

@@ -1,16 +1,14 @@
-package com.joker.lpgo.ui.login.view
+package com.joker.lpgo.ui.auth.view
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.joker.lpgo.R
 import com.joker.lpgo.databinding.ScreenAuthBinding
-import com.joker.lpgo.ui.home.view.HomeActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class LoginActivity : AppCompatActivity() {
+class AuthActivity : AppCompatActivity() {
 
     private lateinit var bindingView: ScreenAuthBinding
 
@@ -22,22 +20,16 @@ class LoginActivity : AppCompatActivity() {
         setupView()
     }
 
-    private fun setupView() {
-        bindingView.htmlText.setHtml(getString(R.string.register_desc))
+    fun setupView() {
 
-        bindingView.button2.setOnClickListener {
-            HomeActivity.launchIntent(applicationContext)
-            finish()
-        }
     }
-
 
     companion object {
 
-        var TAG = "LoginActivity"
+        var TAG = "AuthActivity"
 
         fun launchIntent(context: Context) {
-            val intent = Intent(context, LoginActivity::class.java)
+            val intent = Intent(context, AuthActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             context.startActivity(intent)
         }

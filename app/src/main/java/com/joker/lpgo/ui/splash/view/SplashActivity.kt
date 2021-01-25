@@ -5,7 +5,6 @@ import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import com.joker.lpgo.BuildConfig
 import com.joker.lpgo.databinding.ScreenSplashBinding
-import com.joker.lpgo.ui.login.view.LoginActivity
 import com.joker.lpgo.ui.walktrough.view.WalktroughActivity
 import dagger.hilt.android.AndroidEntryPoint
 
