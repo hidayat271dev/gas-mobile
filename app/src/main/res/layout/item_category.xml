@@ -43,6 +43,15 @@
                 android:textAlignment="center"
                 android:textColor="@color/white" />
 
+            <org.sufficientlysecure.htmltextview.HtmlTextView
+                android:id="@+id/textViewRegister4"
+                style="@style/PoppinsMedium10"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Textview"
+                android:textAlignment="center" />
+
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -123,4 +123,7 @@ dependencies {
     // Bottom Drawer [https://github.com/HeyAlex/BottomDrawer]
     implementation 'com.github.HeyAlex:BottomDrawer:v1.0.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    // Alerter [https://github.com/Tapadoo/Alerter]
+    implementation 'com.tapadoo.android:alerter:6.2.1'
 }

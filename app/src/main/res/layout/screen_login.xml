@@ -66,14 +66,15 @@
                         app:cardCornerRadius="5dp">
 
                         <com.joker.lpgo.utils.widget.edittext.AppEditTextView
+                            android:id="@+id/editTextUsername"
                             style="@style/EditTextDefault"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            app:edt_padding="16dp"
+                            android:imeOptions="actionNext"
                             android:inputType="text|textEmailAddress"
-                            app:edt_show_drawable="true"
                             app:edt_drawable_start="@drawable/ic_user"
-                            android:imeOptions="actionNext" />
+                            app:edt_padding="16dp"
+                            app:edt_show_drawable="true" />
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
@@ -83,15 +84,16 @@
                         app:cardCornerRadius="5dp">
 
                         <com.joker.lpgo.utils.widget.edittext.AppEditTextView
+                            android:id="@+id/editTextPassword"
                             style="@style/EditTextDefault"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            app:edt_padding="16dp"
+                            android:imeOptions="actionDone"
                             android:inputType="textPassword"
-                            app:edt_show_drawable="true"
                             app:edt_drawable_start="@drawable/ic_password"
+                            app:edt_padding="16dp"
                             app:edt_password_toggle="true"
-                            android:imeOptions="actionDone"/>
+                            app:edt_show_drawable="true" />
                     </androidx.cardview.widget.CardView>
 
                     <TextView
