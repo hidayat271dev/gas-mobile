@@ -119,6 +119,7 @@
                 android:layout_width="15dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
+                android:checked="false"
                 app:switcher_off_color="@color/off_color"
                 app:switcher_on_color="@color/on_color" />
 

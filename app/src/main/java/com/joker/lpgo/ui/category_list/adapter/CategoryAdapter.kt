@@ -1,26 +1,18 @@
-package com.joker.lpgo.ui.dashboard.adapter
+package com.joker.lpgo.ui.category_list.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.joker.lpgo.data.model.Category
+import com.joker.lpgo.data.model.Product
 import com.joker.lpgo.databinding.ItemCategoryBinding
 
 class CategoryAdapter (
-    private val datas: ArrayList<Any>,
-    private val listener: ListenerAdapter
+    private val datas: ArrayList<Any>
 ) : RecyclerView.Adapter<CategoryAdapter.DataViewHolder>() {
 
-    interface ListenerAdapter {
-        fun onClickCategoryItem(view: View)
-    }
-
     inner class DataViewHolder(val bindingView: ItemCategoryBinding) : RecyclerView.ViewHolder(bindingView.root) {
-        fun bind(data: Any, listener: ListenerAdapter) {
-            itemView.setOnClickListener {
-                listener.onClickCategoryItem(it)
-            }
+        fun bind(data: Any) {
+
         }
     }
 
@@ -32,9 +24,9 @@ class CategoryAdapter (
     override fun getItemCount(): Int = datas.size
 
     override fun onBindViewHolder(holder: DataViewHolder, position: Int) =
-        holder.bind(datas[position], listener)
+        holder.bind(datas[position])
 
-    fun addData(list: MutableList<Category>) {
+    fun addData(list: MutableList<Product>) {
         datas.addAll(list)
         notifyDataSetChanged()
     }

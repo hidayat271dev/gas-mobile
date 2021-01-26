@@ -6,12 +6,15 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import com.joker.lpgo.R
+import com.joker.lpgo.base.AppBaseActivity
 import com.joker.lpgo.databinding.ScreenHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : AppBaseActivity() {
 
     private lateinit var bindingView: ScreenHomeBinding
 
@@ -24,6 +27,23 @@ class HomeActivity : AppCompatActivity() {
     }
 
     fun setupView() {
+
+        bindingView.badge.setNumber(21, true)
+
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment) as NavHostFragment
+        val navController = navHostFragment.navController
+
+        bindingView.imageView15.setOnClickListener {
+            navController.navigate(R.id.dashboardFragment)
+        }
+
+        bindingView.imageView16.setOnClickListener {
+            navController.navigate(R.id.cartFragment)
+        }
+
+        bindingView.imageView17.setOnClickListener {
+            navController.navigate(R.id.orderListFragment)
+        }
 
     }
 

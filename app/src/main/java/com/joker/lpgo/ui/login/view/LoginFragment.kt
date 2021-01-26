@@ -7,12 +7,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.joker.lpgo.R
+import com.joker.lpgo.data.sharepreference.AppSharedPreference
 import com.joker.lpgo.databinding.ScreenDashboardBinding
 import com.joker.lpgo.databinding.ScreenLoginBinding
 import com.joker.lpgo.ui.home.view.HomeActivity
 import com.joker.lpgo.ui.main.view.MainActivity
 import com.tapadoo.alerter.Alerter
 import dagger.hilt.android.AndroidEntryPoint
+import io.easyprefs.Prefs
 
 @AndroidEntryPoint
 class LoginFragment : Fragment() {
@@ -54,6 +56,7 @@ class LoginFragment : Fragment() {
                     if (bindingView?.editTextUsername?.getText().equals("testing") && bindingView?.editTextUsername?.getText().equals("testing")) {
                         context?.let {
                             HomeActivity.launchIntent(it)
+                            AppSharedPreference.instance.isAppLogin(true)
                             activity?.finish()
                         }
                     } else {

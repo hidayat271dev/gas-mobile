@@ -15,6 +15,7 @@ import com.joker.lpgo.databinding.ScreenDashboardBinding
 import com.joker.lpgo.ui.dashboard.adapter.CategoryAdapter
 import com.joker.lpgo.ui.dashboard.adapter.NearByProductAdapter
 import com.joker.lpgo.ui.dashboard.adapter.RecommendedProductAdapter
+import com.joker.lpgo.ui.product_detail.view.ProductDetailBottomDialog
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -44,9 +45,26 @@ class DashboardFragment : Fragment() {
     }
 
     fun setupView() {
-        adapterNearByProduct = NearByProductAdapter(arrayListOf())
-        adapterCategory = CategoryAdapter(arrayListOf())
-        adapterRecommendedProduct = RecommendedProductAdapter(arrayListOf())
+        adapterNearByProduct = NearByProductAdapter(arrayListOf(), object : NearByProductAdapter.ListenerAdapter {
+            override fun onClickNearByItem(view: View) {
+                ProductDetailBottomDialog.newInstance().let {
+                    childFragmentManager.beginTransaction().add(it, it.TAG).commit()
+                }
+            }
+        })
+        adapterCategory = CategoryAdapter(arrayListOf(), object : CategoryAdapter.ListenerAdapter {
+            override fun onClickCategoryItem(view: View) {
+                Navigation.findNavController(view).navigate(R.id.action_dashboardFragment_to_productListFragment)
+            }
+        })
+        adapterRecommendedProduct = RecommendedProductAdapter(arrayListOf(), object : RecommendedProductAdapter.ListenerAdapter {
+            override fun onClickRecomendedItem(view: View) {
+                ProductDetailBottomDialog.newInstance().let {
+                    childFragmentManager.beginTransaction().add(it, it.TAG).commit()
+                }
+            }
+
+        })
 
         context?.let {
             bindingView?.recyclerViewNearBy?.layoutManager = LinearLayoutManager(it, LinearLayoutManager.HORIZONTAL, false)
@@ -63,6 +81,21 @@ class DashboardFragment : Fragment() {
             Navigation.findNavController(it).navigate(R.id.action_dashboardFragment_to_profileFragment)
         }
 
+        bindingView?.containerLocation?.setOnClickListener {
+            Navigation.findNavController(it).navigate(R.id.action_dashboardFragment_to_currentLocationFragment)
+        }
+
+        bindingView?.containerPopularNearYou?.setOnClickListener {
+            Navigation.findNavController(it).navigate(R.id.action_dashboardFragment_to_productListFragment)
+        }
+
+        bindingView?.containerCategories?.setOnClickListener {
+            Navigation.findNavController(it).navigate(R.id.action_dashboardFragment_to_categoryListFragment)
+        }
+
+        bindingView?.containerRecommended?.setOnClickListener {
+            Navigation.findNavController(it).navigate(R.id.action_dashboardFragment_to_productListFragment)
+        }
 
         adapterNearByProduct.addData(
             ProductNearByListMock().data

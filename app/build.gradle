@@ -126,4 +126,10 @@ dependencies {
 
     // Alerter [https://github.com/Tapadoo/Alerter]
     implementation 'com.tapadoo.android:alerter:6.2.1'
+
+    // NotificationBadge [https://github.com/nex3z/NotificationBadge]
+    implementation 'com.nex3z:notification-badge:1.0.4'
+
+    // EasyPrefs [https://github.com/kishandonga/EasyPrefs]
+    implementation 'com.github.kishandonga:EasyPrefs:1.1'
 }

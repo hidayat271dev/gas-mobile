@@ -55,17 +55,20 @@
             </LinearLayout>
 
             <include
+                android:id="@+id/menuMyOrder"
                 layout="@layout/component_profile_menu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp" />
 
             <include
+                android:id="@+id/menuAddress"
                 layout="@layout/component_profile_menu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <include
+                android:id="@+id/menuAbout"
                 layout="@layout/component_profile_menu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />

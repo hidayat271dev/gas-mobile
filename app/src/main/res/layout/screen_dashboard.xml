@@ -41,6 +41,7 @@
                         android:text="Your Location" />
 
                     <LinearLayout
+                        android:id="@+id/containerLocation"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -91,7 +92,8 @@
                     android:text="Popular Near You" />
 
                 <TextView
-                    
+
+                    android:id="@+id/containerPopularNearYou"
                     style="@style/PoppinsRegular8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -126,7 +128,8 @@
                     android:text="Explore Categories" />
 
                 <TextView
-                    
+
+                    android:id="@+id/containerCategories"
                     style="@style/PoppinsRegular8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -161,7 +164,8 @@
                     android:text="Recommended" />
 
                 <TextView
-                    
+
+                    android:id="@+id/containerRecommended"
                     style="@style/PoppinsRegular8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

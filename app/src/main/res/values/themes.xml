@@ -18,7 +18,7 @@
         <item name="backgroundColor">@color/background</item>
     </style>
 
-    <style name="Pull" parent="BottomDialogTheme">
+    <style name="AppBottomDialog" parent="BottomDialogTheme">
         <item name="bottom_sheet_extra_padding">0dp</item>
         <item name="bottom_sheet_corner_radius">16dp</item>
         <item name="should_draw_content_under_handle_view">true</item>

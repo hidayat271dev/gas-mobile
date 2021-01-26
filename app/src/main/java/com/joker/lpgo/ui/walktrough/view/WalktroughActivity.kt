@@ -6,14 +6,17 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.joker.lpgo.R
+import com.joker.lpgo.base.AppBaseActivity
 import com.joker.lpgo.data.model.Walktrough
+import com.joker.lpgo.data.sharepreference.AppSharedPreference
 import com.joker.lpgo.databinding.ScreenWalkhtroughBinding
 import com.joker.lpgo.ui.auth.view.AuthActivity
 import com.joker.lpgo.ui.walktrough.adapter.WalktroughPageAdapter
 import dagger.hilt.android.AndroidEntryPoint
+import io.easyprefs.Prefs
 
 @AndroidEntryPoint
-class WalktroughActivity : AppCompatActivity() {
+class WalktroughActivity : AppBaseActivity() {
 
     private lateinit var bindingView: ScreenWalkhtroughBinding
 
@@ -64,6 +67,7 @@ class WalktroughActivity : AppCompatActivity() {
                 bindingView.viewPager2.currentItem = currentViewPagerIndex
             } else {
                 AuthActivity.launchIntent(applicationContext)
+                AppSharedPreference.instance.isAppFirstInstall(false)
                 finish()
             }
         }

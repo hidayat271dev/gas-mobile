@@ -25,11 +25,24 @@
         <action
             android:id="@+id/action_dashboardFragment_to_categoryListFragment"
             app:destination="@id/categoryListFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_productListFragment"
+            app:destination="@id/productListFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.joker.lpgo.ui.profile.view.ProfileFragment"
-        android:label="ProfileFragment" />
+        android:label="ProfileFragment" >
+        <action
+            android:id="@+id/action_profileFragment_to_aboutFragment"
+            app:destination="@id/aboutFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_addressListFragment"
+            app:destination="@id/addressListFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_orderListFragment"
+            app:destination="@id/orderListFragment" />
+    </fragment>
     <fragment
         android:id="@+id/cartFragment"
         android:name="com.joker.lpgo.ui.cart.view.CartFragment"
@@ -41,5 +54,25 @@
     <fragment
         android:id="@+id/categoryListFragment"
         android:name="com.joker.lpgo.ui.category_list.view.CategoryListFragment"
-        android:label="CategoryListFragment" />
+        android:label="CategoryListFragment" >
+        <action
+            android:id="@+id/action_categoryListFragment_to_productListFragment"
+            app:destination="@id/productListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.joker.lpgo.ui.about.view.AboutFragment"
+        android:label="AboutFragment" />
+    <fragment
+        android:id="@+id/productListFragment"
+        android:name="com.joker.lpgo.ui.product_list.view.ProductListFragment"
+        android:label="ProductListFragment" />
+    <fragment
+        android:id="@+id/addressListFragment"
+        android:name="com.joker.lpgo.ui.address.view.AddressListFragment"
+        android:label="AddressListFragment" />
+    <fragment
+        android:id="@+id/orderListFragment"
+        android:name="com.joker.lpgo.ui.order_list.view.OrderListFragment"
+        android:label="OrderListFragment" />
 </navigation>
