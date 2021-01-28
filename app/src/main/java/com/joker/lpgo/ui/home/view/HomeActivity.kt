@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
+import androidx.navigation.NavOptions
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
@@ -16,7 +17,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class HomeActivity : AppBaseActivity() {
 
-    private lateinit var bindingView: ScreenHomeBinding
+    lateinit var bindingView: ScreenHomeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,22 +28,21 @@ class HomeActivity : AppBaseActivity() {
     }
 
     fun setupView() {
-
-        bindingView.badge.setNumber(21, true)
-
+        val navBuilder = NavOptions.Builder()
+        navBuilder.setEnterAnim(android.R.anim.slide_in_left).setExitAnim(android.R.anim.slide_out_right).setPopEnterAnim(android.R.anim.slide_in_left).setPopExitAnim(android.R.anim.slide_out_right)
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment) as NavHostFragment
         val navController = navHostFragment.navController
 
         bindingView.imageView15.setOnClickListener {
-            navController.navigate(R.id.dashboardFragment)
+            navController.navigate(R.id.dashboardFragment, null, navBuilder.build())
         }
 
         bindingView.imageView16.setOnClickListener {
-            navController.navigate(R.id.cartFragment)
+            navController.navigate(R.id.cartFragment, null, navBuilder.build())
         }
 
         bindingView.imageView17.setOnClickListener {
-            navController.navigate(R.id.orderListFragment)
+            navController.navigate(R.id.orderListFragment, null, navBuilder.build())
         }
 
     }

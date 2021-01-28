@@ -15,11 +15,11 @@ class MainAdapter(
 
     inner class DataViewHolder(val itemViewBindingA: ItemLayoutBinding) : RecyclerView.ViewHolder(itemViewBindingA.root) {
         fun bind(user: User) {
-            itemViewBindingA.textViewUserName.text = user.name
+//            itemViewBindingA.textViewUserName.text = user.name
             itemViewBindingA.textViewUserEmail.text = user.email
-            Glide.with(itemViewBindingA.imageViewAvatar.context)
-                .load(user.avatar)
-                .into(itemViewBindingA.imageViewAvatar)
+//            Glide.with(itemViewBindingA.imageViewAvatar.context)
+//                .load(user.avatar)
+//                .into(itemViewBindingA.imageViewAvatar)
         }
     }
 

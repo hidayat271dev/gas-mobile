@@ -4,7 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.joker.lpgo.R
@@ -15,13 +19,18 @@ import com.joker.lpgo.databinding.ScreenDashboardBinding
 import com.joker.lpgo.ui.dashboard.adapter.CategoryAdapter
 import com.joker.lpgo.ui.dashboard.adapter.NearByProductAdapter
 import com.joker.lpgo.ui.dashboard.adapter.RecommendedProductAdapter
+import com.joker.lpgo.ui.dashboard.viewmodel.DashboardViewModel
+import com.joker.lpgo.ui.main.viewmodel.MainViewModel
 import com.joker.lpgo.ui.product_detail.view.ProductDetailBottomDialog
+import com.joker.lpgo.utils.Status
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class DashboardFragment : Fragment() {
 
     private var bindingView: ScreenDashboardBinding? = null
+    private val viewModel : DashboardViewModel by viewModels()
+
     private lateinit var adapterNearByProduct: NearByProductAdapter
     private lateinit var adapterCategory: CategoryAdapter
     private lateinit var adapterRecommendedProduct: RecommendedProductAdapter
@@ -35,6 +44,7 @@ class DashboardFragment : Fragment() {
         val view = bindingView?.root
         if (view != null) {
             setupView()
+            setupObserver()
         }
         return view
     }
@@ -45,6 +55,8 @@ class DashboardFragment : Fragment() {
     }
 
     fun setupView() {
+        bindingView?.textView15?.text = "Jl Sarimanis 7 Blok 13 No 78 Bandung 40151"
+
         adapterNearByProduct = NearByProductAdapter(arrayListOf(), object : NearByProductAdapter.ListenerAdapter {
             override fun onClickNearByItem(view: View) {
                 ProductDetailBottomDialog.newInstance().let {
@@ -52,7 +64,7 @@ class DashboardFragment : Fragment() {
                 }
             }
         })
-        adapterCategory = CategoryAdapter(arrayListOf(), object : CategoryAdapter.ListenerAdapter {
+        adapterCategory = CategoryAdapter(requireContext(), arrayListOf(), object : CategoryAdapter.ListenerAdapter {
             override fun onClickCategoryItem(view: View) {
                 Navigation.findNavController(view).navigate(R.id.action_dashboardFragment_to_productListFragment)
             }
@@ -97,17 +109,26 @@ class DashboardFragment : Fragment() {
             Navigation.findNavController(it).navigate(R.id.action_dashboardFragment_to_productListFragment)
         }
 
-        adapterNearByProduct.addData(
-            ProductNearByListMock().data
-        )
-
         adapterCategory.addData(
             CategoryListMock().data
         )
+    }
 
-        adapterRecommendedProduct.addData(
-            ProductRecommendedListMock().data
-        )
+    private fun setupObserver() {
+        viewModel.products.observe(viewLifecycleOwner, Observer {
+            when (it.status) {
+                Status.SUCCESS -> {
+                    it.data?.let { data ->
+                        adapterRecommendedProduct.addData(data)
+                        adapterNearByProduct.addData(data)
+                    }
+                }
+                Status.LOADING -> {
+                }
+                Status.ERROR -> {
+                }
+            }
+        })
     }
 
 }

@@ -99,6 +99,23 @@
                 android:layout_margin="16dp"
                 android:text="-" />
 
+            <androidx.cardview.widget.CardView
+                android:layout_width="85dp"
+                android:layout_height="match_parent"
+                android:layout_margin="4dp"
+                app:cardCornerRadius="5dp">
+
+                <com.joker.lpgo.utils.widget.edittext.AppEditTextView
+                    android:id="@+id/qty"
+                    style="@style/EditTextDefault"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:imeOptions="actionDone"
+                    android:inputType="text|number"
+                    app:edt_show_clear="false"
+                    app:edt_padding="16dp" />
+            </androidx.cardview.widget.CardView>
+
             <Button
                 android:id="@+id/button6"
                 style="@style/AppButtonPrimary"

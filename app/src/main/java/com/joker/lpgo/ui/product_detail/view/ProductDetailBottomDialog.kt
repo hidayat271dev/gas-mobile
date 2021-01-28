@@ -13,6 +13,7 @@ import com.github.heyalex.handle.PlainHandleView
 import com.joker.lpgo.R
 import com.joker.lpgo.databinding.ScreenLoginBinding
 import com.joker.lpgo.databinding.ScreenProductDetailBinding
+import com.joker.lpgo.ui.home.view.HomeActivity
 
 class ProductDetailBottomDialog: BottomDrawerFragment() {
 
@@ -28,6 +29,27 @@ class ProductDetailBottomDialog: BottomDrawerFragment() {
         bindingView = ScreenProductDetailBinding.inflate(inflater, container, false)
         val view = bindingView?.root
         if (view != null) {
+            bindingView?.qty?.setText("1")
+
+            bindingView?.button5?.setOnClickListener {
+                var qty = Integer.parseInt(bindingView?.qty?.getText())
+                if (qty > 0) {
+                    qty -= 1
+                    bindingView?.qty?.setText("${qty}")
+                }
+            }
+
+            bindingView?.button6?.setOnClickListener {
+                var qty = Integer.parseInt(bindingView?.qty?.getText())
+                qty += 1
+                bindingView?.qty?.setText("${qty}")
+            }
+
+            bindingView?.button7?.setOnClickListener {
+                var qty = Integer.parseInt(bindingView?.qty?.getText())
+                (activity as HomeActivity).bindingView.badge.setNumber(qty, true)
+                dismissWithBehavior()
+            }
         }
         return view
     }

@@ -6,5 +6,5 @@
     <string name="login_desc"><![CDATA[<p>Are you have account to login? <strong><font color="#FC6B57">click here for Login</font></strong></p>]]></string>
     <string name="forgot_desc"><![CDATA[<p>Are you remember account to login? <strong><font color="#FC6B57">click here for Login</font></strong></p>]]></string>
 
-    <style name="short_desc_category"><![CDATA[<p><strong><font color="#FFFFFF">%1$s</font></strong> Products</p>]]></style>
+    <string name="short_desc_category"><![CDATA[<p><strong><font color="#FFFFFF">%1$s</font></strong> Products</p>]]></string>
 </resources>
