@@ -42,6 +42,7 @@
                         android:textColor="#DDDDDD" />
 
                     <TextView
+                        android:id="@+id/on"
                         style="@style/PoppinsSemiBold12"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -66,6 +67,7 @@
                         android:textColor="#DDDDDD" />
 
                     <TextView
+                        android:id="@+id/od"
                         style="@style/PoppinsSemiBold12"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

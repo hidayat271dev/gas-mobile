@@ -52,11 +52,13 @@
                     android:orientation="horizontal">
 
                     <include
+                        android:id="@+id/qty"
                         layout="@layout/component_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
                     <include
+                        android:id="@+id/price"
                         layout="@layout/component_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />

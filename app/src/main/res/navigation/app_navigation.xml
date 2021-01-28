@@ -1,118 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/app_navigation"
-    app:startDestination="@id/dashboardFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/app_navigation"
+    app:startDestination="@id/dashboardView">
+
     <fragment
-        android:id="@+id/dashboardFragment"
-        android:name="com.joker.lpgo.ui.dashboard.view.DashboardFragment"
-        android:label="DashboardFragment">
+        android:id="@+id/dashboardView"
+        android:name="com.joker.lpgo.mobile.module.dashboard.DashboardView"
+        android:label="DashboardView" >
         <action
-            android:id="@+id/action_dashboardFragment_to_profileFragment"
-            app:destination="@id/profileFragment"
-            app:enterAnim="@anim/fragment_open_enter"
-            app:exitAnim="@anim/fragment_open_exit"
-            app:launchSingleTop="true"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+            android:id="@+id/action_dashboardView_to_cartView"
+            app:destination="@id/cartView" />
         <action
-            android:id="@+id/action_dashboardFragment_to_cartFragment"
-            app:destination="@id/cartFragment"
-            app:enterAnim="@anim/fragment_open_enter"
-            app:exitAnim="@anim/fragment_open_exit"
-            app:launchSingleTop="true"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+            android:id="@+id/action_dashboardView_to_profileView"
+            app:destination="@id/profileView" />
         <action
-            android:id="@+id/action_dashboardFragment_to_currentLocationFragment"
-            app:destination="@id/currentLocationFragment"
-            app:enterAnim="@anim/fragment_open_enter"
-            app:exitAnim="@anim/fragment_open_exit"
-            app:launchSingleTop="true"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim"  />
+            android:id="@+id/action_dashboardView_to_currentLocation"
+            app:destination="@id/currentLocation" />
         <action
-            android:id="@+id/action_dashboardFragment_to_categoryListFragment"
-            app:destination="@id/categoryListFragment"
-            app:enterAnim="@anim/fragment_open_enter"
-            app:exitAnim="@anim/fragment_open_exit"
-            app:launchSingleTop="true"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim"  />
+            android:id="@+id/action_dashboardView_to_productListView"
+            app:destination="@id/productListView" />
         <action
-            android:id="@+id/action_dashboardFragment_to_productListFragment"
-            app:destination="@id/productListFragment"
-            app:enterAnim="@anim/fragment_open_enter"
-            app:exitAnim="@anim/fragment_open_exit"
-            app:launchSingleTop="true"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim"  />
+            android:id="@+id/action_dashboardView_to_categoryView"
+            app:destination="@id/categoryView" />
+        <action
+            android:id="@+id/action_dashboardView_to_orderListView"
+            app:destination="@id/orderListView" />
     </fragment>
     <fragment
-        android:id="@+id/profileFragment"
-        android:name="com.joker.lpgo.ui.profile.view.ProfileFragment"
-        android:label="ProfileFragment" >
+        android:id="@+id/cartView"
+        android:name="com.joker.lpgo.mobile.module.cart.CartView"
+        android:label="CartView" >
         <action
-            android:id="@+id/action_profileFragment_to_aboutFragment"
-            app:destination="@id/aboutFragment"
-            app:enterAnim="@anim/fragment_open_enter"
-            app:exitAnim="@anim/fragment_open_exit"
-            app:launchSingleTop="true"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim"  />
-        <action
-            android:id="@+id/action_profileFragment_to_addressListFragment"
-            app:destination="@id/addressListFragment"
-            app:enterAnim="@anim/fragment_open_enter"
-            app:exitAnim="@anim/fragment_open_exit"
-            app:launchSingleTop="true"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim"  />
-        <action
-            android:id="@+id/action_profileFragment_to_orderListFragment"
-            app:destination="@id/orderListFragment"
-            app:enterAnim="@anim/fragment_open_enter"
-            app:exitAnim="@anim/fragment_open_exit"
-            app:launchSingleTop="true"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim"  />
+            android:id="@+id/action_cartView_to_checkoutView"
+            app:destination="@id/checkoutView" />
     </fragment>
     <fragment
-        android:id="@+id/cartFragment"
-        android:name="com.joker.lpgo.ui.cart.view.CartFragment"
-        android:label="CartFragment" />
-    <fragment
-        android:id="@+id/currentLocationFragment"
-        android:name="com.joker.lpgo.ui.current_location.view.CurrentLocationFragment"
-        android:label="CurrentLocationFragment" />
-    <fragment
-        android:id="@+id/categoryListFragment"
-        android:name="com.joker.lpgo.ui.category_list.view.CategoryListFragment"
-        android:label="CategoryListFragment" >
+        android:id="@+id/checkoutView"
+        android:name="com.joker.lpgo.mobile.module.checkout.CheckoutView"
+        android:label="CheckoutView" >
         <action
-            android:id="@+id/action_categoryListFragment_to_productListFragment"
-            app:destination="@id/productListFragment"
-            app:enterAnim="@anim/fragment_open_enter"
-            app:exitAnim="@anim/fragment_open_exit"
-            app:launchSingleTop="true"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+            android:id="@+id/action_checkoutView_to_dashboardView"
+            app:destination="@id/dashboardView"
+            app:popUpTo="@id/dashboardView"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
-        android:id="@+id/aboutFragment"
-        android:name="com.joker.lpgo.ui.about.view.AboutFragment"
-        android:label="AboutFragment" />
+        android:id="@+id/profileView"
+        android:name="com.joker.lpgo.mobile.module.profile.ProfileView"
+        android:label="ProfileView" >
+        <action
+            android:id="@+id/action_profileView_to_aboutView"
+            app:destination="@id/aboutView" />
+        <action
+            android:id="@+id/action_profileView_to_orderListView"
+            app:destination="@id/orderListView" />
+    </fragment>
     <fragment
-        android:id="@+id/productListFragment"
-        android:name="com.joker.lpgo.ui.product_list.view.ProductListFragment"
-        android:label="ProductListFragment" />
+        android:id="@+id/currentLocation"
+        android:name="com.joker.lpgo.mobile.module.current_location.CurrentLocation"
+        android:label="CurrentLocation" />
     <fragment
-        android:id="@+id/addressListFragment"
-        android:name="com.joker.lpgo.ui.address.view.AddressListFragment"
-        android:label="AddressListFragment" />
+        android:id="@+id/productListView"
+        android:name="com.joker.lpgo.mobile.module.product_list.ProductListView"
+        android:label="ProductListView" />
     <fragment
-        android:id="@+id/orderListFragment"
-        android:name="com.joker.lpgo.ui.order_list.view.OrderListFragment"
-        android:label="OrderListFragment" />
+        android:id="@+id/categoryView"
+        android:name="com.joker.lpgo.mobile.module.category.CategoryView"
+        android:label="CategoryView" />
+    <fragment
+        android:id="@+id/aboutView"
+        android:name="com.joker.lpgo.mobile.module.about.AboutView"
+        android:label="AboutView" />
+    <fragment
+        android:id="@+id/orderListView"
+        android:name="com.joker.lpgo.mobile.module.order_list.OrderListView"
+        android:label="OrderListView" >
+        <action
+            android:id="@+id/action_orderListView_to_orderDetailView"
+            app:destination="@id/orderDetailView" />
+    </fragment>
+    <fragment
+        android:id="@+id/orderDetailView"
+        android:name="com.joker.lpgo.mobile.module.order_detail.OrderDetailView"
+        android:label="OrderDetailView" />
 </navigation>

@@ -58,7 +58,7 @@
                         android:id="@+id/imageView12"
                         android:layout_width="16dp"
                         android:layout_height="16dp"
-                        android:tint="@color/primary"
+                        app:tint="@color/primary"
                         app:srcCompat="@drawable/gander_ic_https_grey_24dp" />
 
                 </LinearLayout>
@@ -69,11 +69,13 @@
                     android:orientation="horizontal">
 
                     <include
+                        android:id="@+id/avaQty"
                         layout="@layout/component_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
                     <include
+                        android:id="@+id/salePrice"
                         layout="@layout/component_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
@@ -105,6 +107,24 @@
                             android:layout_height="30dp"
                             android:layout_margin="16dp"
                             android:text="-" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="55dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="4dp"
+                            app:cardCornerRadius="5dp">
+
+                            <com.joker.lpgo.mobile.util.widget.edittext.AppEditTextView
+                                android:id="@+id/qty"
+                                style="@style/EditTextDefault"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:imeOptions="actionDone"
+                                android:inputType="text|number"
+                                app:edt_show_clear="false"
+                                app:edt_padding="16dp" />
+
+                        </androidx.cardview.widget.CardView>
 
                         <Button
                             android:id="@+id/button6"

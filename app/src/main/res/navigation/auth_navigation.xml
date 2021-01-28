@@ -1,33 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/auth_navigation"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/loginView">
 
     <fragment
-        android:id="@+id/loginFragment"
-        android:name="com.joker.lpgo.ui.login.view.LoginFragment"
-        android:label="LoginFragment" >
+        android:id="@+id/loginView"
+        android:name="com.joker.lpgo.mobile.module.login.LoginView"
+        android:label="LoginView" >
         <action
-            android:id="@+id/action_loginFragment_to_registerFragment"
-            app:destination="@id/registerFragment"
-            app:enterAnim="@android:anim/slide_in_left"
-            app:exitAnim="@android:anim/slide_out_right"
-            app:popEnterAnim="@android:anim/slide_in_left"
-            app:popExitAnim="@android:anim/slide_out_right" />
+            android:id="@+id/action_loginView_to_forgotView"
+            app:destination="@id/forgotView" />
         <action
-            android:id="@+id/action_loginFragment_to_forgotFragment"
-            app:destination="@id/forgotFragment"
-            app:enterAnim="@android:anim/slide_in_left"
-            app:exitAnim="@android:anim/slide_out_right"
-            app:popEnterAnim="@android:anim/slide_in_left"
-            app:popExitAnim="@android:anim/slide_out_right" />
+            android:id="@+id/action_loginView_to_registerView"
+            app:destination="@id/registerView" />
     </fragment>
     <fragment
-        android:id="@+id/registerFragment"
-        android:name="com.joker.lpgo.ui.register.view.RegisterFragment"
-        android:label="RegisterFragment" />
+        android:id="@+id/forgotView"
+        android:name="com.joker.lpgo.mobile.module.forgot.ForgotView"
+        android:label="ForgotView" />
     <fragment
-        android:id="@+id/forgotFragment"
-        android:name="com.joker.lpgo.ui.forgot.view.ForgotFragment"
-        android:label="ForgotFragment" />
+        android:id="@+id/registerView"
+        android:name="com.joker.lpgo.mobile.module.register.RegisterView"
+        android:label="RegisterView" />
 </navigation>

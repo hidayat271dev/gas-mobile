@@ -126,7 +126,8 @@
                             android:textColor="#DDDDDD" />
 
                         <TextView
-                            
+
+                            android:id="@+id/subTotal"
                             style="@style/PoppinsSemiBold12"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -152,7 +153,8 @@
                             android:textColor="#DDDDDD" />
 
                         <TextView
-                            
+
+                            android:id="@+id/delivery"
                             style="@style/PoppinsSemiBold12"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -169,16 +171,17 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            
+
                             style="@style/PoppinsSemiBold10"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Task"
+                            android:text="Tax"
                             android:textColor="#DDDDDD" />
 
                         <TextView
-                            
+
+                            android:id="@+id/tax"
                             style="@style/PoppinsSemiBold12"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -212,7 +215,8 @@
                             android:textColor="#DDDDDD" />
 
                         <TextView
-                            
+
+                            android:id="@+id/total"
                             style="@style/PoppinsSemiBold12"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"

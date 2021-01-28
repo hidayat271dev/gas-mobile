@@ -41,11 +41,13 @@
                     android:orientation="horizontal">
 
                     <include
+                        android:id="@+id/txtQty"
                         layout="@layout/component_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
                     <include
+                        android:id="@+id/textPrice"
                         layout="@layout/component_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
@@ -101,11 +103,11 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="85dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 app:cardCornerRadius="5dp">
 
-                <com.joker.lpgo.utils.widget.edittext.AppEditTextView
+                <com.joker.lpgo.mobile.util.widget.edittext.AppEditTextView
                     android:id="@+id/qty"
                     style="@style/EditTextDefault"
                     android:layout_width="match_parent"
@@ -114,6 +116,7 @@
                     android:inputType="text|number"
                     app:edt_show_clear="false"
                     app:edt_padding="16dp" />
+
             </androidx.cardview.widget.CardView>
 
             <Button

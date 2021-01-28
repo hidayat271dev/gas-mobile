@@ -19,6 +19,7 @@
     <color name="buttonPrimary">#FC6B57</color>
 
     <color name="background">#F3F3FF</color>
+    <color name="transparant">#00FFFFFF</color>
 
     <color name="primaryText">#22243C</color>
     <color name="secondaryText">#99999B</color>

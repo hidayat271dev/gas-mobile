@@ -5,16 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/logo" />
-
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nestedScrollView"
         android:layout_width="0dp"
@@ -65,7 +55,7 @@
                         android:layout_margin="4dp"
                         app:cardCornerRadius="5dp">
 
-                        <com.joker.lpgo.utils.widget.edittext.AppEditTextView
+                        <com.joker.lpgo.mobile.util.widget.edittext.AppEditTextView
                             android:id="@+id/editTextUsername"
                             style="@style/EditTextDefault"
                             android:layout_width="match_parent"
@@ -74,7 +64,8 @@
                             android:inputType="text|textEmailAddress"
                             app:edt_drawable_start="@drawable/ic_user"
                             app:edt_padding="16dp"
-                            app:edt_show_drawable="true" />
+                            app:edt_show_drawable="true"
+                            app:edt_hint="Enter email / phone"/>
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
@@ -83,7 +74,7 @@
                         android:layout_margin="4dp"
                         app:cardCornerRadius="5dp">
 
-                        <com.joker.lpgo.utils.widget.edittext.AppEditTextView
+                        <com.joker.lpgo.mobile.util.widget.edittext.AppEditTextView
                             android:id="@+id/editTextPassword"
                             style="@style/EditTextDefault"
                             android:layout_width="match_parent"
@@ -93,7 +84,8 @@
                             app:edt_drawable_start="@drawable/ic_password"
                             app:edt_padding="16dp"
                             app:edt_password_toggle="true"
-                            app:edt_show_drawable="true" />
+                            app:edt_show_drawable="true"
+                            app:edt_hint="Enter password"/>
                     </androidx.cardview.widget.CardView>
 
                     <TextView
