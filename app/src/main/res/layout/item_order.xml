@@ -54,6 +54,7 @@
                     android:text="Rp. 20.000.000" />
 
                 <include
+                    android:id="@+id/status"
                     layout="@layout/component_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

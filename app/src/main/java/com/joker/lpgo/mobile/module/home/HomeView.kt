@@ -7,6 +7,7 @@ import androidx.navigation.NavOptions
 import androidx.navigation.fragment.NavHostFragment
 import com.joker.lpgo.mobile.R
 import com.joker.lpgo.mobile.base.BaseActivity
+import com.joker.lpgo.mobile.data.preference.AppPreference
 import com.joker.lpgo.mobile.databinding.ScreenAuthBinding
 import com.joker.lpgo.mobile.databinding.ScreenHomeBinding
 import com.joker.lpgo.mobile.module.auth.AuthView
@@ -45,8 +46,20 @@ class HomeView : BaseActivity() {
             navController.navigate(R.id.orderListView, null, navBuilder.build())
         }
 
+        addToCart()
     }
 
+    fun addToCart() {
+        var a = AppPreference.getCartUser()?.size
+
+        if (a == null || a <= 0) {
+            bindingView?.badge.setNumber(0, true)
+        } else {
+            a?.let {
+                bindingView?.badge.setNumber(it, true)
+            }
+        }
+    }
 
 
     companion object {

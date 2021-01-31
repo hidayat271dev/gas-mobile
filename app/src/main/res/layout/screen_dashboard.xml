@@ -52,7 +52,7 @@
                             android:layout_width="16dp"
                             android:layout_height="16dp"
                             android:layout_weight="0"
-                            app:srcCompat="@drawable/gander_ic_https_grey_24dp" />
+                            app:srcCompat="@drawable/ic_location" />
 
                         <TextView
                             android:id="@+id/textView15"

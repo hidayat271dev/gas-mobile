@@ -58,8 +58,8 @@
                         android:id="@+id/imageView12"
                         android:layout_width="16dp"
                         android:layout_height="16dp"
-                        app:tint="@color/primary"
-                        app:srcCompat="@drawable/gander_ic_https_grey_24dp" />
+                        app:srcCompat="@drawable/ic_delete"
+                        app:tint="@color/primary" />
 
                 </LinearLayout>
 
@@ -88,7 +88,7 @@
 
                     <TextView
                         android:id="@+id/textView29"
-                        style="@style/PoppinsSemiBold10"
+                        style="@style/PoppinsSemiBold12"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"

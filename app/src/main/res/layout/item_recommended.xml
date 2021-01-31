@@ -29,7 +29,20 @@
                 android:layout_height="82dp"
                 app:cardBackgroundColor="#D8D8D8"
                 app:cardCornerRadius="4dp"
-                app:cardElevation="0dp" />
+                app:cardElevation="0dp" >
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/imageView18"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY"
+                        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+                </FrameLayout>
+            </androidx.cardview.widget.CardView>
 
             <TextView
                 android:id="@+id/textView18"

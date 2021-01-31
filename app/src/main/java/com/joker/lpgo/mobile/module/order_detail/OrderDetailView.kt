@@ -1,6 +1,7 @@
 package com.joker.lpgo.mobile.module.order_detail
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -21,6 +22,7 @@ class OrderDetailView : BaseFragment(), OnMapReadyCallback {
     private var bindingView: ScreenOrderDetailBinding? = null
 
     private lateinit var mMap: GoogleMap
+    private var orderId: String? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,6 +39,11 @@ class OrderDetailView : BaseFragment(), OnMapReadyCallback {
         bindingView = null
     }
 
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        orderId = arguments?.getString("order_id")
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         requestOrderDetail()
@@ -51,37 +58,58 @@ class OrderDetailView : BaseFragment(), OnMapReadyCallback {
     @SuppressLint("CheckResult")
     fun requestOrderDetail() {
         getBaseActivity()?.isShowProgressDialog(true)
-        AppApi
-            .getRequest(context = context, withTokenAuth = true)
-            ?.create(OrderApi::class.java)
-            ?.getOrder(uuid = "fafa8106-f98b-4cba-bd32-0ea345c44c6b")
-            ?.observeOn(AndroidSchedulers.mainThread())
-            ?.subscribe(
-                { result ->
-                    val data = result.body()
-                    getBaseActivity()?.isShowProgressDialog(false)
-                    if(result.isSuccessful) {
-                        data?.data?.let { product ->
-                            bindingView?.mapView2?.getMapAsync(this)
-                            bindingView?.on?.text = product.order_number
-                            bindingView?.od?.text = product.created_at
+        orderId?.let {
+            AppApi
+                .getRequest(context = context, withTokenAuth = true)
+                ?.create(OrderApi::class.java)
+                ?.getOrder(uuid = it)
+                ?.observeOn(AndroidSchedulers.mainThread())
+                ?.subscribe(
+                    { result ->
+                        val data = result.body()
+                        getBaseActivity()?.isShowProgressDialog(false)
+                        if(result.isSuccessful) {
+                            data?.data?.let { product ->
+                                bindingView?.mapView2?.getMapAsync(this)
+                                bindingView?.on?.text = product.order_number
+                                bindingView?.od?.text = product.created_at
+
+                                var subTotal = 0
+                                product?.detail.forEach {
+                                    subTotal += (Integer.parseInt(it.qty) * it.sale_price)
+                                }
+                                var tax = subTotal * (0.1)
+                                var del = 2000
+                                var total = subTotal + del + tax
+
+                                bindingView?.sub?.text = "${subTotal}"
+                                bindingView?.del?.text = "${del}"
+                                bindingView?.tax?.text = "${tax}"
+                                bindingView?.total?.text = "${total}"
+
+                                if (product.order_status.equals("1")) {
+                                    bindingView?.status?.textView9?.text = "Confrim"
+                                } else {
+                                    bindingView?.status?.textView9?.text = "Pending"
+                                }
+                            }
+                        } else {
+                            Alerter.create(activity)
+                                .setTitle("Failed get order list")
+                                .setText("Server is busy")
+                                .show()
                         }
-                    } else {
+                    },
+                    { error ->
+                        getBaseActivity()?.isShowProgressDialog(false)
                         Alerter.create(activity)
                             .setTitle("Failed get order list")
                             .setText("Server is busy")
                             .show()
+                        error.printStackTrace()
                     }
-                },
-                { error ->
-                    getBaseActivity()?.isShowProgressDialog(false)
-                    Alerter.create(activity)
-                        .setTitle("Failed get order list")
-                        .setText("Server is busy")
-                        .show()
-                    error.printStackTrace()
-                }
-            )
+                )
+        }
 
     }
 

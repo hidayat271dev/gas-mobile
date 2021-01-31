@@ -45,6 +45,6 @@
             android:id="@+id/imageView7"
             android:layout_width="16dp"
             android:layout_height="16dp"
-            app:srcCompat="@drawable/gander_ic_https_grey_24dp" />
+            app:srcCompat="@drawable/ic_next" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -37,12 +37,17 @@ class ProfileView : BaseFragment() {
 
     fun setupView() {
         bindingView?.menuAbout?.textView13?.text = "About App"
+        bindingView?.menuAbout?.imageView6?.setImageResource(R.drawable.ic_info)
         bindingView?.menuMyOrder?.textView13?.text = "My Order"
+        bindingView?.menuAbout?.imageView6?.setImageResource(R.drawable.ic_shopping_bag)
         bindingView?.menuAddress?.textView13?.text = "Address"
+        bindingView?.menuAbout?.imageView6?.setImageResource(R.drawable.ic_location)
 
         currentUser = AppPreference.getCurrentUser()
         currentUser?.let {
             bindingView?.textView11?.text = it.fullname
+            bindingView?.textView?.text = it.phone
+            bindingView?.textView6?.text = it.email
             bindingView?.profileImage?.let { it1 ->
                 Glide
                     .with(requireContext())

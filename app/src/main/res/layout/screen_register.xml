@@ -70,7 +70,7 @@
                     android:layout_height="match_parent"
                     android:imeOptions="actionNext"
                     android:inputType="text|textEmailAddress"
-                    app:edt_drawable_start="@drawable/ic_user"
+                    app:edt_drawable_start="@drawable/ic_email"
                     app:edt_padding="16dp"
                     app:edt_show_drawable="true"
                     app:edt_hint="Enter Email"/>
@@ -89,7 +89,7 @@
                     android:layout_height="match_parent"
                     android:imeOptions="actionNext"
                     android:inputType="text|phone"
-                    app:edt_drawable_start="@drawable/ic_user"
+                    app:edt_drawable_start="@drawable/ic_phone"
                     app:edt_padding="16dp"
                     app:edt_show_drawable="true"
                     app:edt_hint="Enter Phone Number"/>

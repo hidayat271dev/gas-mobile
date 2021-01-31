@@ -16,6 +16,7 @@ import com.joker.lpgo.mobile.R
 import com.joker.lpgo.mobile.data.model.Cart
 import com.joker.lpgo.mobile.data.preference.AppPreference
 import com.joker.lpgo.mobile.databinding.ScreenProductDetailBinding
+import com.joker.lpgo.mobile.module.home.HomeView
 import com.tapadoo.alerter.Alerter
 
 class ProductDetailView: BottomDrawerFragment() {
@@ -45,7 +46,9 @@ class ProductDetailView: BottomDrawerFragment() {
             bindingView?.textView26?.text = it.name
             bindingView?.textView27?.text = it.desc
             bindingView?.textPrice?.textView9?.text = "Rp. ${it.sale_price}"
-            bindingView?.txtQty?.textView9?.text = "${99}"
+            bindingView?.textPrice?.imageView5?.setImageResource(R.drawable.ic_dollar)
+            bindingView?.txtQty?.textView9?.text = "${it.qty}"
+            bindingView?.txtQty?.imageView5?.setImageResource(R.drawable.ic_stack)
         }
 
         val tempDataCart = AppPreference.getCartUser()
@@ -77,6 +80,7 @@ class ProductDetailView: BottomDrawerFragment() {
                 .setTitle("Success Insert Cart")
                 .setText("You are success add item into cart")
                 .show()
+            (activity as HomeView).addToCart()
             var qty = Integer.parseInt(bindingView?.qty?.getText())
             product?.let {
                 val cart = Cart(uuid = it.uuid, product = it.name, qty = qty, price = it.sale_price)

@@ -27,6 +27,13 @@ class OrderAdapter (private val context: Context,
                 bindingView?.textView7.text = data.order_number
                 bindingView.textView8.text = data.created_at
                 bindingView.textView10.text = "Rp. ${data.total}"
+                bindingView.status.imageView5.setImageResource(R.drawable.ic_charging_circle)
+
+                if (data.order_status.equals("1")) {
+                    bindingView.status.textView9.text = "Confrim"
+                } else {
+                    bindingView.status.textView9.text = "Pending"
+                }
             }
 
             itemView.setOnClickListener {

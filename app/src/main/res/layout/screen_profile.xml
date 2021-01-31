@@ -36,13 +36,36 @@
                     app:civ_border_color="@color/white"
                     app:civ_border_width="2dp" />
 
-                <TextView
-                    android:id="@+id/textView11"
-                    style="@style/PoppinsSemiBold12"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="TextView" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView11"
+                        style="@style/PoppinsSemiBold12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="TextView" />
+
+                    <TextView
+                        android:id="@+id/textView"
+                        style="@style/PoppinsSemiBold12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="TextView" />
+
+                    <TextView
+                        android:id="@+id/textView6"
+                        style="@style/PoppinsSemiBold12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="TextView" />
+                </LinearLayout>
 
                 <TextView
                     android:id="@+id/textView12"

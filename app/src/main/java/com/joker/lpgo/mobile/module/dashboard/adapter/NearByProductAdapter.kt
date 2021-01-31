@@ -4,7 +4,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.joker.lpgo.data.model.Product
+import com.joker.lpgo.mobile.R
 import com.joker.lpgo.mobile.databinding.ItemNearyByBinding
 
 class NearByProductAdapter (
@@ -22,7 +24,16 @@ class NearByProductAdapter (
                 bindingView.textView18.text = data.name
                 bindingView.textView19.text = data.short_desc
                 bindingView.price.textView9.text = "${data.sale_price}"
-                bindingView.qty.textView9.text = "${99}"
+                bindingView.price.imageView5.setImageResource(R.drawable.ic_dollar)
+                bindingView.qty.textView9.text = "${data.qty}"
+                bindingView.qty.imageView5.setImageResource(R.drawable.ic_stack)
+                Glide
+                    .with(bindingView.imageView18)
+                    .load(data.img_cover)
+                    .centerCrop()
+                    .placeholder(R.drawable.ic_no_image_default)
+                    .error(R.drawable.ic_no_image_default)
+                    .into(bindingView.imageView18)
             }
 
             itemView.setOnClickListener {

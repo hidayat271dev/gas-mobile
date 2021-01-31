@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.joker.lpgo.data.model.Product
+import com.joker.lpgo.mobile.R
 import com.joker.lpgo.mobile.databinding.ItemNearyByBinding
 import com.joker.lpgo.mobile.databinding.ItemProductBinding
 
@@ -23,7 +24,9 @@ class ProductAdapter (
                 bindingView.textView18.text = data.name
                 bindingView.textView29.text = data.short_desc
                 bindingView.price.textView9.text = "${data.sale_price}"
-                bindingView.qty.textView9.text = "${99}"
+                bindingView.price.imageView5.setImageResource(R.drawable.ic_dollar)
+                bindingView.qty.textView9.text = "${data.qty}"
+                bindingView.qty.imageView5.setImageResource(R.drawable.ic_stack)
             }
 
             itemView.setOnClickListener {

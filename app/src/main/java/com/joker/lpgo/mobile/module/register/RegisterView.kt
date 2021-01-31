@@ -38,7 +38,7 @@ class RegisterView : BaseFragment() {
 
     fun setupView() {
         bindingView?.textViewRegister2?.setHtml(getString(R.string.register_tnc))
-        bindingView?.textViewRegister3?.setHtml(getString(R.string.register_desc))
+        bindingView?.textViewRegister3?.setHtml(getString(R.string.login_desc))
     }
 
     fun setupViewListener() {

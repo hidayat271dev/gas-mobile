@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.joker.lpgo.mobile.R
@@ -44,7 +45,8 @@ class OrderListView : BaseFragment() {
         adapterOrder = OrderAdapter(requireContext(), arrayListOf(), object : OrderAdapter.ListenerAdapter {
             override fun onClickOrderItem(view: View, data: Any) {
                 if (data is Order) {
-                    navigatePageLeft(R.id.orderDetailView, view)
+                    val bundle = bundleOf("order_id" to data.uuid)
+                    navigatePageLeft(R.id.orderDetailView, view, bundle)
                 }
             }
 

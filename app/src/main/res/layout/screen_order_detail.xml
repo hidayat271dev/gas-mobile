@@ -92,6 +92,7 @@
                         android:textColor="#DDDDDD" />
 
                     <include
+                        android:id="@+id/status"
                         layout="@layout/component_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
@@ -144,6 +145,7 @@
                             android:textColor="#DDDDDD" />
 
                         <TextView
+                            android:id="@+id/sub"
                             style="@style/PoppinsSemiBold12"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -168,6 +170,7 @@
                             android:textColor="#DDDDDD" />
 
                         <TextView
+                            android:id="@+id/del"
                             style="@style/PoppinsSemiBold12"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -192,6 +195,7 @@
                             android:textColor="#DDDDDD" />
 
                         <TextView
+                            android:id="@+id/tax"
                             style="@style/PoppinsSemiBold12"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -224,6 +228,7 @@
                             android:textColor="#DDDDDD" />
 
                         <TextView
+                            android:id="@+id/total"
                             style="@style/PoppinsSemiBold12"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -293,7 +298,7 @@
                         android:id="@+id/imageView13"
                         android:layout_width="16dp"
                         android:layout_height="16dp"
-                        app:srcCompat="@drawable/gander_ic_https_grey_24dp" />
+                        app:srcCompat="@drawable/ic_location" />
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
@@ -302,7 +307,8 @@
                 android:id="@+id/mapView2"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:layout_margin="16dp" />
+                android:layout_margin="16dp"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/textView33"
@@ -310,11 +316,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="16dp"
-                android:text="History" />
+                android:text="History"
+                android:visibility="gone" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:visibility="gone"
                 tools:listitem="@layout/item_history_detail_text" />
 
         </LinearLayout>

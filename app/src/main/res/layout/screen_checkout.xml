@@ -73,10 +73,10 @@
                     </LinearLayout>
 
                     <ImageView
-                        
+
                         android:layout_width="16dp"
                         android:layout_height="16dp"
-                        app:srcCompat="@drawable/gander_ic_https_grey_24dp" />
+                        app:srcCompat="@drawable/ic_location" />
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
@@ -267,10 +267,10 @@
                         android:text="Cash" />
 
                     <ImageView
-                        
+
                         android:layout_width="16dp"
                         android:layout_height="16dp"
-                        app:srcCompat="@drawable/gander_ic_https_grey_24dp" />
+                        app:srcCompat="@drawable/ic_charging_circle" />
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>

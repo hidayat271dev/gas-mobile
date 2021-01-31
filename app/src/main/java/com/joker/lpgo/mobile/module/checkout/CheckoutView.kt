@@ -89,6 +89,7 @@ class CheckoutView : BaseFragment() {
                                 .setTitle("Order success")
                                 .setText("Please wait until operator confirm")
                                 .show()
+                            (activity as HomeView).addToCart()
                             Navigation.findNavController(view).popBackStack(R.id.dashboardView, true)
                         } else {
                             Alerter.create(activity)
