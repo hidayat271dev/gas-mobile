@@ -79,7 +79,7 @@ class OrderDetailView : BaseFragment(), OnMapReadyCallback {
                                     subTotal += (Integer.parseInt(it.qty) * it.sale_price)
                                 }
                                 var tax = subTotal * (0.1)
-                                var del = 2000
+                                var del = 20000
                                 var total = subTotal + del + tax
 
                                 bindingView?.sub?.text = "${subTotal}"

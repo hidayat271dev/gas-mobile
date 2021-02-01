@@ -76,5 +76,9 @@ class ProfileView : BaseFragment() {
         bindingView?.menuMyOrder?.containerMenu?.setOnClickListener {
             navigatePageLeft(R.id.orderListView, it)
         }
+
+        bindingView?.menuAddress?.containerMenu?.setOnClickListener {
+            navigatePageLeft(R.id.addressListView, it)
+        }
     }
 }

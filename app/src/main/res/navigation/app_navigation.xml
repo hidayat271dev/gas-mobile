@@ -54,6 +54,9 @@
         <action
             android:id="@+id/action_profileView_to_orderListView"
             app:destination="@id/orderListView" />
+        <action
+            android:id="@+id/action_profileView_to_addressListView"
+            app:destination="@id/addressListView" />
     </fragment>
     <fragment
         android:id="@+id/currentLocation"
@@ -83,4 +86,8 @@
         android:id="@+id/orderDetailView"
         android:name="com.joker.lpgo.mobile.module.order_detail.OrderDetailView"
         android:label="OrderDetailView" />
+    <fragment
+        android:id="@+id/addressListView"
+        android:name="com.joker.lpgo.mobile.module.address.AddressListView"
+        android:label="AddressListView" />
 </navigation>

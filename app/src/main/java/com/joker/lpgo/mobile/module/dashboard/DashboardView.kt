@@ -1,6 +1,8 @@
 package com.joker.lpgo.mobile.module.dashboard
 
 import android.annotation.SuppressLint
+import android.location.Address
+import android.location.Geocoder
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -18,12 +20,15 @@ import com.joker.lpgo.mobile.data.remote.endpoint.HomeApi
 import com.joker.lpgo.mobile.databinding.ScreenDashboardBinding
 import com.joker.lpgo.mobile.module.home.HomeView
 import com.joker.lpgo.mobile.module.product_detail.ProductDetailView
+import com.joker.lpgo.mobile.util.extension.getAddressInfo
 import com.joker.lpgo.mobile.util.extension.show
 import com.joker.lpgo.ui.dashboard.adapter.CategoryAdapter
 import com.joker.lpgo.ui.dashboard.adapter.NearByProductAdapter
 import com.joker.lpgo.ui.dashboard.adapter.RecommendedProductAdapter
 import com.tapadoo.alerter.Alerter
 import io.reactivex.android.schedulers.AndroidSchedulers
+import java.util.*
+
 
 class DashboardView : BaseFragment() {
 
@@ -96,6 +101,7 @@ class DashboardView : BaseFragment() {
 
             bindingView?.recyclerRecommended?.layoutManager = LinearLayoutManager(it, LinearLayoutManager.HORIZONTAL, false)
             bindingView?.recyclerRecommended?.adapter = adapterRecommendedProduct
+            bindingView?.textView15?.text = "".getAddressInfo(it, -6.8828687,107.5836387)
         }
 
         requestDataNearBy()
@@ -107,7 +113,7 @@ class DashboardView : BaseFragment() {
         }
 
         bindingView?.containerLocation?.setOnClickListener {
-            navigatePageLeft(R.id.currentLocation, it)
+            navigatePageLeft(R.id.addressListView, it)
         }
 
         bindingView?.containerPopularNearYou?.setOnClickListener {
@@ -133,27 +139,27 @@ class DashboardView : BaseFragment() {
             ?.getNearBy()
             ?.observeOn(AndroidSchedulers.mainThread())
             ?.subscribe(
-                { result ->
-                    val data = result.body()
-                    if(result.isSuccessful) {
-                        data?.data?.let { adapterNearByProduct.addData(it) }
-                        requestDataCategories()
-                    } else {
+                    { result ->
+                        val data = result.body()
+                        if (result.isSuccessful) {
+                            data?.data?.let { adapterNearByProduct.addData(it) }
+                            requestDataCategories()
+                        } else {
+                            getBaseActivity()?.isShowProgressDialog(false)
+                            Alerter.create(activity)
+                                    .setTitle("Failed get NearBy")
+                                    .setText("Server is busy")
+                                    .show()
+                        }
+                    },
+                    { error ->
                         getBaseActivity()?.isShowProgressDialog(false)
                         Alerter.create(activity)
-                            .setTitle("Failed get NearBy")
-                            .setText("Server is busy")
-                            .show()
+                                .setTitle("Failed get NearBy")
+                                .setText("Server is busy")
+                                .show()
+                        error.printStackTrace()
                     }
-                },
-                { error ->
-                    getBaseActivity()?.isShowProgressDialog(false)
-                    Alerter.create(activity)
-                        .setTitle("Failed get NearBy")
-                        .setText("Server is busy")
-                        .show()
-                    error.printStackTrace()
-                }
             )
     }
 
@@ -165,27 +171,27 @@ class DashboardView : BaseFragment() {
             ?.getCategories()
             ?.observeOn(AndroidSchedulers.mainThread())
             ?.subscribe(
-                { result ->
-                    val data = result.body()
-                    if(result.isSuccessful) {
-                        data?.data?.let { adapterCategory.addData(it) }
-                        requestDataRecommended()
-                    } else {
+                    { result ->
+                        val data = result.body()
+                        if (result.isSuccessful) {
+                            data?.data?.let { adapterCategory.addData(it) }
+                            requestDataRecommended()
+                        } else {
+                            getBaseActivity()?.isShowProgressDialog(false)
+                            Alerter.create(activity)
+                                    .setTitle("Failed get Categories")
+                                    .setText("Server is busy")
+                                    .show()
+                        }
+                    },
+                    { error ->
                         getBaseActivity()?.isShowProgressDialog(false)
                         Alerter.create(activity)
-                            .setTitle("Failed get Categories")
-                            .setText("Server is busy")
-                            .show()
+                                .setTitle("Failed get Categories")
+                                .setText("Server is busy")
+                                .show()
+                        error.printStackTrace()
                     }
-                },
-                { error ->
-                    getBaseActivity()?.isShowProgressDialog(false)
-                    Alerter.create(activity)
-                        .setTitle("Failed get Categories")
-                        .setText("Server is busy")
-                        .show()
-                    error.printStackTrace()
-                }
             )
     }
 
@@ -197,26 +203,26 @@ class DashboardView : BaseFragment() {
             ?.getRecommended()
             ?.observeOn(AndroidSchedulers.mainThread())
             ?.subscribe(
-                { result ->
-                    val data = result.body()
-                    getBaseActivity()?.isShowProgressDialog(false)
-                    if(result.isSuccessful) {
-                        data?.data?.let { adapterRecommendedProduct.addData(it) }
-                    } else {
+                    { result ->
+                        val data = result.body()
+                        getBaseActivity()?.isShowProgressDialog(false)
+                        if (result.isSuccessful) {
+                            data?.data?.let { adapterRecommendedProduct.addData(it) }
+                        } else {
+                            Alerter.create(activity)
+                                    .setTitle("Failed get Recommended")
+                                    .setText("Server is busy")
+                                    .show()
+                        }
+                    },
+                    { error ->
+                        getBaseActivity()?.isShowProgressDialog(false)
                         Alerter.create(activity)
-                            .setTitle("Failed get Recommended")
-                            .setText("Server is busy")
-                            .show()
+                                .setTitle("Failed get Recommended")
+                                .setText("Server is busy")
+                                .show()
+                        error.printStackTrace()
                     }
-                },
-                { error ->
-                    getBaseActivity()?.isShowProgressDialog(false)
-                    Alerter.create(activity)
-                        .setTitle("Failed get Recommended")
-                        .setText("Server is busy")
-                        .show()
-                    error.printStackTrace()
-                }
             )
     }
 
@@ -229,30 +235,30 @@ class DashboardView : BaseFragment() {
             ?.getDetailProduct(uuid = uuid)
             ?.observeOn(AndroidSchedulers.mainThread())
             ?.subscribe(
-                { result ->
-                    val data = result.body()
-                    getBaseActivity()?.isShowProgressDialog(false)
-                    if(result.isSuccessful) {
-                        data?.data?.let { product ->
-                            ProductDetailView.newInstance(product).let {
-                                childFragmentManager.beginTransaction().add(it, it.TAG).commit()
+                    { result ->
+                        val data = result.body()
+                        getBaseActivity()?.isShowProgressDialog(false)
+                        if (result.isSuccessful) {
+                            data?.data?.let { product ->
+                                ProductDetailView.newInstance(product).let {
+                                    childFragmentManager.beginTransaction().add(it, it.TAG).commit()
+                                }
                             }
+                        } else {
+                            Alerter.create(activity)
+                                    .setTitle("Failed get Detail Product")
+                                    .setText("Server is busy")
+                                    .show()
                         }
-                    } else {
+                    },
+                    { error ->
+                        getBaseActivity()?.isShowProgressDialog(false)
                         Alerter.create(activity)
-                            .setTitle("Failed get Detail Product")
-                            .setText("Server is busy")
-                            .show()
+                                .setTitle("Failed get Detail Product")
+                                .setText("Server is busy")
+                                .show()
+                        error.printStackTrace()
                     }
-                },
-                { error ->
-                    getBaseActivity()?.isShowProgressDialog(false)
-                    Alerter.create(activity)
-                        .setTitle("Failed get Detail Product")
-                        .setText("Server is busy")
-                        .show()
-                    error.printStackTrace()
-                }
             )
     }
 }

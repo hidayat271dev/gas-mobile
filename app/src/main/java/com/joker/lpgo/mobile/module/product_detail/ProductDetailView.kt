@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import com.bumptech.glide.Glide
 import com.github.heyalex.bottomdrawer.BottomDrawerDialog
 import com.github.heyalex.bottomdrawer.BottomDrawerFragment
 import com.github.heyalex.handle.PlainHandleView
@@ -49,6 +50,15 @@ class ProductDetailView: BottomDrawerFragment() {
             bindingView?.textPrice?.imageView5?.setImageResource(R.drawable.ic_dollar)
             bindingView?.txtQty?.textView9?.text = "${it.qty}"
             bindingView?.txtQty?.imageView5?.setImageResource(R.drawable.ic_stack)
+            bindingView?.imageView18?.let { it1 ->
+                Glide
+                        .with(it1)
+                        .load(it.img_cover)
+                        .centerCrop()
+                        .placeholder(R.drawable.ic_no_image_default)
+                        .error(R.drawable.ic_no_image_default)
+                        .into(it1)
+            }
         }
 
         val tempDataCart = AppPreference.getCartUser()
