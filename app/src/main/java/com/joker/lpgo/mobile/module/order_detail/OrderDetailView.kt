@@ -76,7 +76,7 @@ class OrderDetailView : BaseFragment(), OnMapReadyCallback {
 
                                 var subTotal = 0
                                 product?.detail.forEach {
-                                    subTotal += (Integer.parseInt(it.qty) * it.sale_price)
+                                    subTotal += (it.qty * it.sale_price)
                                 }
                                 var tax = subTotal * (0.1)
                                 var del = 20000
