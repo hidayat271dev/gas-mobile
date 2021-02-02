@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/textView17"
+            style="@style/PoppinsSemiBold12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="Add new address" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="4dp"
+            app:cardCornerRadius="5dp">
+
+            <com.joker.lpgo.mobile.util.widget.edittext.AppEditTextView
+                android:id="@+id/editTextUsername"
+                style="@style/EditTextDefault"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:imeOptions="actionNext"
+                android:inputType="text|textEmailAddress"
+                app:edt_drawable_start="@drawable/ic_user"
+                app:edt_hint="Enter Address name"
+                app:edt_padding="16dp"
+                app:edt_show_drawable="true" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/textView38"
+            style="@style/PoppinsSemiBold12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Detail address" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button10"
+        style="@style/AppButtonPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="Save" />
+</LinearLayout>

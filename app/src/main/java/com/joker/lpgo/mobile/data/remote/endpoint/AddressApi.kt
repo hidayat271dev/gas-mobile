@@ -17,4 +17,12 @@ interface AddressApi {
             @Path("uuid") uuid: String,
     ): Observable<Response<AddressDetailResponse>>
 
+    @FormUrlEncoded
+    @POST("api/v1/user_address")
+    fun saveAddress(
+            @Field("name") name: String,
+            @Field("lat") lat: Double,
+            @Field("long") long: Double,
+    ): Observable<Response<AddressDetailResponse>>
+
 }

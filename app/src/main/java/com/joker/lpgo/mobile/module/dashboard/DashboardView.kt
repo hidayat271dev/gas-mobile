@@ -70,7 +70,6 @@ class DashboardView : BaseFragment() {
                     .into(it1)
             }
         }
-        bindingView?.textView15?.text = "Jl Sarimanis 7 Blok 13 No 78 Bandung 40151"
 
         adapterNearByProduct = NearByProductAdapter(arrayListOf(), object : NearByProductAdapter.ListenerAdapter {
             override fun onClickNearByItem(view: View, data: Any) {
@@ -101,10 +100,22 @@ class DashboardView : BaseFragment() {
 
             bindingView?.recyclerRecommended?.layoutManager = LinearLayoutManager(it, LinearLayoutManager.HORIZONTAL, false)
             bindingView?.recyclerRecommended?.adapter = adapterRecommendedProduct
-            bindingView?.textView15?.text = "".getAddressInfo(it, -6.8828687,107.5836387)
+
+            setAddress()
         }
 
         requestDataNearBy()
+    }
+
+    fun setAddress() {
+        context?.let {
+            val address = AppPreference.getCurrentAddress()
+            if (address == null) {
+                bindingView?.textView15?.text = "".getAddressInfo(it, -6.8828687, 107.5836387)
+            } else {
+                bindingView?.textView15?.text = "".getAddressInfo(it, address.lat, address.long)
+            }
+        }
     }
 
     fun setupViewListener() {

@@ -56,14 +56,16 @@
                         android:orientation="vertical">
 
                         <TextView
-                            
+
+                            android:id="@+id/name"
                             style="@style/PoppinsSemiBold12"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Home" />
 
                         <TextView
-                            
+
+                            android:id="@+id/text"
                             style="@style/PoppinsSemiBold10"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"

@@ -1,6 +1,7 @@
 package com.joker.lpgo.mobile.data.preference
 
 import android.util.Log
+import com.joker.lpgo.mobile.data.model.Address
 import com.joker.lpgo.mobile.data.model.Cart
 import com.joker.lpgo.mobile.data.model.User
 import com.orhanobut.hawk.Hawk
@@ -12,6 +13,7 @@ object AppPreference {
     val APP_TOKEN = "APP_TOKEN"
     val CURRENT_USER = "CURRENT_USER"
     val CART_USER = "CART_USER"
+    val CURRENT_ADDRESS_USER = "CURRENT_ADDRESS_USER"
 
     fun setAppFirstInstall(isFirstInstall: Boolean?) {
         Hawk.put(IS_APP_FIRST, isFirstInstall)
@@ -53,6 +55,17 @@ object AppPreference {
     fun getCurrentUser(): User? {
         if (Hawk.get<User>(CURRENT_USER) != null) {
             return Hawk.get<User>(CURRENT_USER)
+        }
+        return null
+    }
+
+    fun setCurrentAddress(address: Address?) {
+        Hawk.put(CURRENT_ADDRESS_USER, address)
+    }
+
+    fun getCurrentAddress(): Address? {
+        if (Hawk.get<Address>(CURRENT_ADDRESS_USER) != null) {
+            return Hawk.get<Address>(CURRENT_ADDRESS_USER)
         }
         return null
     }

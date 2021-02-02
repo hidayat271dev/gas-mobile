@@ -21,8 +21,8 @@ android {
 
     buildTypes {
         debug {
-             buildConfigField 'String', 'BASE_URL', "\"http://192.168.83.90/ga-del/\""
-//             buildConfigField 'String', 'BASE_URL', "\"http://192.168.1.5/ga-del/\""
+//             buildConfigField 'String', 'BASE_URL', "\"http://192.168.83.90/ga-del/\""
+             buildConfigField 'String', 'BASE_URL', "\"http://192.168.1.5/ga-del/\""
 //            buildConfigField 'String', 'BASE_URL', "\"https://5e510330f2c0d300147c034c.mockapi.io/\""
         }
         release {

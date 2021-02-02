@@ -78,6 +78,7 @@ class LoginView : BaseFragment() {
                             AppPreference.setAppIsLogin(true)
                             AppPreference.setCurrentUser(data?.data?.user)
                             AppPreference.setAppToken(data?.data?.token)
+                            AppPreference.setCurrentAddress(data?.data?.current_address)
                             HomeView.launchIntent(requireContext())
                             activity?.finish()
                         } else {

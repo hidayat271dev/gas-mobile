@@ -11,6 +11,7 @@ import com.joker.lpgo.mobile.R
 import com.joker.lpgo.mobile.base.BaseFragment
 import com.joker.lpgo.mobile.data.model.Address
 import com.joker.lpgo.mobile.data.model.Order
+import com.joker.lpgo.mobile.data.preference.AppPreference
 import com.joker.lpgo.mobile.data.remote.AppApi
 import com.joker.lpgo.mobile.data.remote.endpoint.AddressApi
 import com.joker.lpgo.mobile.data.remote.endpoint.OrderApi
@@ -114,6 +115,7 @@ class AddressListView : BaseFragment() {
                             val data = result.body()
                             getBaseActivity()?.isShowProgressDialog(false)
                             if(result.isSuccessful) {
+                                AppPreference.setCurrentAddress(data?.data)
                                 Alerter.create(activity)
                                         .setTitle("Success update address")
                                         .setText("Success Update")

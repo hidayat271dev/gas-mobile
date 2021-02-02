@@ -15,6 +15,7 @@ import com.joker.lpgo.mobile.data.remote.endpoint.AuthApi
 import com.joker.lpgo.mobile.data.remote.endpoint.CheckoutApi
 import com.joker.lpgo.mobile.databinding.ScreenCheckoutBinding
 import com.joker.lpgo.mobile.module.home.HomeView
+import com.joker.lpgo.mobile.util.extension.getAddressInfo
 import com.tapadoo.alerter.Alerter
 import io.reactivex.android.schedulers.AndroidSchedulers
 
@@ -62,7 +63,16 @@ class CheckoutView : BaseFragment() {
         bindingView?.total?.text = "Rp. ${total}"
 
 
-
+        context?.let {
+            val address = AppPreference.getCurrentAddress()
+            if (address == null) {
+                bindingView?.name?.text = "Home"
+                bindingView?.text?.text = "".getAddressInfo(it, -6.8828687, 107.5836387)
+            } else {
+                bindingView?.name?.text = address.name
+                bindingView?.text?.text = "".getAddressInfo(it, address.lat, address.long)
+            }
+        }
 
 
         bindingView?.button9?.setOnClickListener {

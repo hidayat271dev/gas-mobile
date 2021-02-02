@@ -65,6 +65,7 @@ class ProfileView : BaseFragment() {
             AppPreference.setRemoveAllCart()
             AppPreference.setAppIsLogin(false)
             AppPreference.setCurrentUser(null)
+            AppPreference.setCurrentAddress(null)
             AuthView.launchIntent(requireContext())
             activity?.finish()
         }
