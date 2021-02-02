@@ -93,7 +93,7 @@ class ProductDetailView: BottomDrawerFragment() {
             (activity as HomeView).addToCart()
             var qty = Integer.parseInt(bindingView?.qty?.getText())
             product?.let {
-                val cart = Cart(uuid = it.uuid, product = it.name, qty = qty, price = it.sale_price, stock = it.qty)
+                val cart = Cart(uuid = it.uuid, product = it.name, qty = qty, price = it.sale_price, stock = it.qty, image = it.img_cover)
                 AppPreference.setCartUser(cart)
                 Log.e(TAG, "onViewCreated: ${AppPreference.getCartUser().toString()}" )
             }

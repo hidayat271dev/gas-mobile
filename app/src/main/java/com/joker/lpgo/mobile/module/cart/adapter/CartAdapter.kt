@@ -4,7 +4,9 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.joker.lpgo.data.model.Category
+import com.joker.lpgo.mobile.R
 import com.joker.lpgo.mobile.data.model.Cart
 import com.joker.lpgo.mobile.databinding.ItemCartBinding
 
@@ -27,6 +29,14 @@ class CartAdapter(
                 bindingView.avaQty.textView9.text = "${data.stock}"
                 bindingView.salePrice.textView9.text = "Rp. ${data.price}"
                 bindingView.qty.setText("${data.qty}")
+
+                Glide
+                        .with(bindingView.imageView18)
+                        .load(data.image)
+                        .centerCrop()
+                        .placeholder(R.drawable.ic_no_image_default)
+                        .error(R.drawable.ic_no_image_default)
+                        .into(bindingView.imageView18)
 
                 bindingView.button6.setOnClickListener {
                     listener.incDecItemCart(data, true)

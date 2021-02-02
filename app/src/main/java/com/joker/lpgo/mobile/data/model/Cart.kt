@@ -7,5 +7,6 @@ data class Cart(
     val product: String,
     var qty: Int,
     val price: Int,
-    val stock: Int
+    val stock: Int,
+    val image: String
 )
