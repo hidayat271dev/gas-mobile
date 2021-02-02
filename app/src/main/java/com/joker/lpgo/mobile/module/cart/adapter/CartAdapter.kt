@@ -24,7 +24,7 @@ class CartAdapter(
             if (data is Cart) {
                 bindingView.textView18.text = data.product
                 bindingView.textView29.text = "${(data.qty * data.price)}"
-                bindingView.avaQty.textView9.text = "${99}"
+                bindingView.avaQty.textView9.text = "${data.stock}"
                 bindingView.salePrice.textView9.text = "Rp. ${data.price}"
                 bindingView.qty.setText("${data.qty}")
 

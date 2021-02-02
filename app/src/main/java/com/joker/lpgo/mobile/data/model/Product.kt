@@ -8,7 +8,7 @@ data class Product(
     val id: Int = 0,
     val uuid: String = "",
     val name: String = "",
-    val qty: String = "",
+    val qty: Int = 0,
     val short_desc: String = "",
     val desc: String = "",
     val status_product: Int = 0,
