@@ -23,6 +23,12 @@ interface AddressApi {
             @Field("name") name: String,
             @Field("lat") lat: Double,
             @Field("long") long: Double,
+            @Field("address_meta") addressMeta: String
+    ): Observable<Response<AddressDetailResponse>>
+
+    @DELETE("api/v1/user_address/{uuid}")
+    fun deleteAddress(
+        @Path("uuid") uuid: String
     ): Observable<Response<AddressDetailResponse>>
 
 }

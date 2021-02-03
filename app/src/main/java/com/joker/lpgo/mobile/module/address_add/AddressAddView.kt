@@ -90,7 +90,8 @@ class AddressAddView: BottomDrawerFragment() {
             ?.saveAddress(
                     name = bindingView?.editTextUsername?.getText().toString(),
                     lat = latitude!!,
-                    long = longitude!!
+                    long = longitude!!,
+                    addressMeta = "".getAddressInfo(requireContext(), latitude!!, longitude!!)
             )
             ?.observeOn(AndroidSchedulers.mainThread())
             ?.subscribe(

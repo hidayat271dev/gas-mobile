@@ -9,6 +9,7 @@ data class Order(
     val total: String,
     val updated_at: String,
     val user_id: String,
+    val address_id: String,
     val uuid: String,
     val detail: List<Product>
 )

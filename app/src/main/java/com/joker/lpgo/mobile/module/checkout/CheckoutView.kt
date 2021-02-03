@@ -79,6 +79,8 @@ class CheckoutView : BaseFragment() {
 
             getBaseActivity()?.isShowProgressDialog(true)
 
+            val currentAddress = AppPreference.getCurrentAddress()
+
             AppApi
                 .getRequest(context = context, withTokenAuth = true)
                 ?.create(CheckoutApi::class.java)
@@ -86,7 +88,8 @@ class CheckoutView : BaseFragment() {
                     items = items,
                     qyts = qtys,
                     status = 0,
-                    total = total.toInt()
+                    total = total.toInt(),
+                    address_id = currentAddress?.uuid.toString()
                 )
                 ?.observeOn(AndroidSchedulers.mainThread())
                 ?.subscribe(

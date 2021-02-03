@@ -7,5 +7,6 @@ data class Address(
     val long: Double,
     val name: String,
     val user_id: String,
-    val uuid: String
+    val uuid: String,
+    val address_meta: String,
 )

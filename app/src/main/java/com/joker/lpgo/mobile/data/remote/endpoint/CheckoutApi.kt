@@ -18,6 +18,7 @@ interface CheckoutApi {
         @Field("qty[]") qyts: MutableList<Int>,
         @Field("order_status") status: Int,
         @Field("total") total: Int,
+        @Field("address_id") address_id: String,
     ): Observable<Response<OrderResponse>>
 
 }

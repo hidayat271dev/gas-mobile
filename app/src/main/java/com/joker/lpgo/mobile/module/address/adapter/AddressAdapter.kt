@@ -20,6 +20,7 @@ class AddressAdapter (private val context: Context,
 
     interface ListenerAdapter {
         fun onClickAddressItem(view: View, data: Any)
+        fun onLongPressAddressItem(view: View, data: Any)
     }
 
     inner class DataViewHolder(val bindingView: ItemAddressBinding) : RecyclerView.ViewHolder(bindingView.root) {
@@ -39,6 +40,11 @@ class AddressAdapter (private val context: Context,
 
                 itemView.setOnClickListener {
                     listener.onClickAddressItem(it, data)
+                }
+
+                itemView.setOnLongClickListener {
+                    listener.onLongPressAddressItem(it, data)
+                    false
                 }
             }
         }

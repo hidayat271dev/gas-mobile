@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.core.os.bundleOf
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.joker.lpgo.mobile.R
@@ -48,6 +49,25 @@ class AddressListView : BaseFragment() {
                 if (data is Address) {
                     updatePrimaryAddress(data)
                 }
+            }
+
+            override fun onLongPressAddressItem(view: View, data: Any) {
+                val builder = AlertDialog.Builder(requireContext())
+                builder.setMessage("Are you sure you want to Delete?")
+                    .setCancelable(false)
+                    .setPositiveButton("Yes") { dialog, id ->
+                        // Delete selected note from database
+                        if (data is Address) {
+                            dialog.dismiss()
+                            deleteAddress(data)
+                        }
+                    }
+                    .setNegativeButton("No") { dialog, id ->
+                        // Dismiss the dialog
+                        dialog.dismiss()
+                    }
+                val alert = builder.create()
+                alert.show()
             }
 
         })
@@ -98,6 +118,47 @@ class AddressListView : BaseFragment() {
                             error.printStackTrace()
                         }
                 )
+    }
+
+    @SuppressLint("CheckResult")
+    fun deleteAddress(data: Address) {
+        getBaseActivity()?.isShowProgressDialog(true)
+        AppApi
+            .getRequest(context = context, withTokenAuth = true)
+            ?.create(AddressApi::class.java)
+            ?.deleteAddress(
+                uuid = data.uuid
+            )
+            ?.observeOn(AndroidSchedulers.mainThread())
+            ?.subscribe(
+                { result ->
+                    val data = result.body()
+                    getBaseActivity()?.isShowProgressDialog(false)
+                    if(result.isSuccessful) {
+                        AppPreference.setCurrentAddress(data?.data)
+                        Alerter.create(activity)
+                            .setTitle("Success update address")
+                            .setText("Success Update")
+                            .setOnHideListener{
+                                requestOrder()
+                            }
+                            .show()
+                    } else {
+                        Alerter.create(activity)
+                            .setTitle("Failed get address list")
+                            .setText("Server is busy")
+                            .show()
+                    }
+                },
+                { error ->
+                    getBaseActivity()?.isShowProgressDialog(false)
+                    Alerter.create(activity)
+                        .setTitle("Failed get address list")
+                        .setText("Server is busy")
+                        .show()
+                    error.printStackTrace()
+                }
+            )
     }
 
     @SuppressLint("CheckResult")
